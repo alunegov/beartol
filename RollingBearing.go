@@ -1,5 +1,6 @@
 package beartol
 
+// RollingBearingType обозначает тип подшипника качения
 type RollingBearingType int
 
 const (
@@ -37,20 +38,32 @@ const (
 	RollingBearingType_RollerSphereUpor
 )
 
+// RollingBearingTypeSpecial обозначает особенности типа подшипника качения
 type RollingBearingTypeSpecial int
 
 const (
+	// RollingBearingTypeSpecial_None обозначает подшипник без особенностей
 	RollingBearingTypeSpecial_None RollingBearingTypeSpecial = iota
+	// RollingBearingTypeSpecial_72B_73B обозначает подшипник
 	RollingBearingTypeSpecial_72B_73B
+	// RollingBearingTypeSpecial_33DA обозначает подшипник
 	RollingBearingTypeSpecial_33DA
+	// RollingBearingTypeSpecial_NN30ASK обозначает подшипник
 	RollingBearingTypeSpecial_NN30ASK
 )
 
+// RollingBearing описывает подшипник качения
 type RollingBearing struct {
-	Type           RollingBearingType
-	TypeSpecial    RollingBearingTypeSpecial
-	InnerDiameter  int
-	OuterDiameter  int
-	ClassTochn     string
+	// Тип подшипника
+	Type RollingBearingType
+	// Особенности типа подшипника
+	TypeSpecial RollingBearingTypeSpecial
+	// Внутренний диаметр, мм
+	InnerDiameter int
+	// Наружный диаметр, мм
+	OuterDiameter int
+	// Класс точности: C1NA, C2, CN, C3, C4
+	ClassTochn string
+	// Группа зазора: PN, P6, P6X, P5, P4, P4S, SP, UP
 	ClearanceGroup string
 }

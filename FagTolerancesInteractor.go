@@ -30,6 +30,8 @@ func (thiz *FagTolerancesInteractor) toToleranceId(rbType RollingBearingType) (i
 	case RollingBearingType_BallRadial:
 		fallthrough
 	case RollingBearingType_BallRadialUpor:
+		// у 72B и 73B допуски внутреннего диаметра для подшипников всех классов точности - по P5 (без дополнительного
+		// обозначения)
 		fallthrough
 	case RollingBearingType_Shpindel:
 		fallthrough
