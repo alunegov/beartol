@@ -13,6 +13,9 @@ func (thiz *FagTolerancesInteractor) GetInnerDiameterTolerance(rb RollingBearing
 		return 0, 0, err
 	}
 	tolerances := gDiameterTolerances[id][rb.ClassTochn].Inner
+	if len(tolerances) == 0 {
+		return 0, 0, fmt.Errorf("unsupp Type %d or ClassTochn %s", rb.Type, rb.ClassTochn)
+	}
 	return thiz.findTolerance(tolerances, rb.InnerDiameter)
 }
 
@@ -22,6 +25,9 @@ func (thiz *FagTolerancesInteractor) GetOuterDiameterTolerance(rb RollingBearing
 		return 0, 0, err
 	}
 	tolerances := gDiameterTolerances[id][rb.ClassTochn].Outer
+	if len(tolerances) == 0 {
+		return 0, 0, fmt.Errorf("unsupp Type %d or ClassTochn %s", rb.Type, rb.ClassTochn)
+	}
 	return thiz.findTolerance(tolerances, rb.OuterDiameter)
 }
 
